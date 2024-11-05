@@ -1,9 +1,14 @@
 
 
   <ul>
-   <li  *ngFor = " let path of pathsToImages">
+   <li  *ngFor = " let food of foods">
       <a >
-      <img src={{path}} alt="">
+      <img src={{food.imageUrl}} alt="">
+      <div class="content">
+         {{food.name}}
+      </div>
+      <span class="favourite {{food.favourite ? '' : 'not'  }}" > ❤️ </span>
+
    </a>
      </li>  
   </ul>

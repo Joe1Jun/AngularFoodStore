@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FoodService } from '../Services/food/food-service.service';
 import { CommonModule } from '@angular/common';
+import { Food } from '../shared/models/Food';
 @Component({
   selector: 'app-home',
   standalone: true,
@@ -11,7 +12,7 @@ import { CommonModule } from '@angular/common';
 export class HomeComponent {
 
 
-  pathsToImages! : string [];
+  foods! : Food [];
 
   constructor( private foodService : FoodService){
 
@@ -19,7 +20,7 @@ export class HomeComponent {
   }
 
   ngOnInit(){
-    this.pathsToImages = this.foodService.getAll();
+    this.foods = this.foodService.getAll();
   }
 
  
