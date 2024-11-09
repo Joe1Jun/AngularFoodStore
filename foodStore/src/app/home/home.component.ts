@@ -2,13 +2,15 @@ import { Component } from '@angular/core';
 import { FoodService } from '../Services/food/food-service.service';
 import { CommonModule } from '@angular/common';
 import { Food } from '../shared/models/Food';
+import { SearchComponent } from '../search/search.component';
 import { ActivatedRoute } from '@angular/router';
+
 
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, SearchComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })
