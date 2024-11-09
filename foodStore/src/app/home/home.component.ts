@@ -27,12 +27,12 @@ export class HomeComponent {
   ngOnInit() {
     this.foods = this.foodService.getAll();
     this.route.params.subscribe(params => {
-      console.log('Params:', params);
+     
       if (params['searchTerm']) {
         this.foods = this.foodService.getAll().filter(food =>
           food.name.toLowerCase().includes(params['searchTerm'].toLowerCase())
         );
-        console.log('Filtered foods:', this.foods);
+       
       }
     });
   }
