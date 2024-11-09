@@ -25,7 +25,7 @@ export class HomeComponent {
   }
 
   ngOnInit() {
-    this.foods = this.foodService.getAll();
+   
     this.route.params.subscribe(params => {
      
       if (params['searchTerm']) {
@@ -33,6 +33,15 @@ export class HomeComponent {
           food.name.toLowerCase().includes(params['searchTerm'].toLowerCase())
         );
        
+      }else if(params['tag']){
+          this.foods = this.foodService.getAllFoodsByTag(params['tag']);
+      }
+      
+      
+      
+      
+      else{
+        this.foods = this.foodService.getAll();
       }
     });
   }
