@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FoodService } from '../Services/food/food-service.service';
 import { CommonModule } from '@angular/common';
 import { Food } from '../shared/models/Food';
+import { ActivatedRoute } from '@angular/router';
 
 
 @Component({
@@ -16,13 +17,22 @@ export class HomeComponent {
 
   foods! : Food [];
 
-  constructor( private foodService : FoodService){
+  constructor( private foodService : FoodService, private route : ActivatedRoute){
 
 
   }
 
-  ngOnInit(){
+  ngOnInit() {
     this.foods = this.foodService.getAll();
+    this.route.params.subscribe(params => {
+      console.log('Params:', params);
+      if (params['searchTerm']) {
+        this.foods = this.foodService.getAll().filter(food =>
+          food.name.toLowerCase().includes(params['searchTerm'].toLowerCase())
+        );
+        console.log('Filtered foods:', this.foods);
+      }
+    });
   }
 
  
