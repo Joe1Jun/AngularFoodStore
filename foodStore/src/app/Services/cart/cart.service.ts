@@ -19,6 +19,7 @@ export class CartService {
      }
 
     this.cart.items.push(new CartItem(food));
+    
 
   }
 
