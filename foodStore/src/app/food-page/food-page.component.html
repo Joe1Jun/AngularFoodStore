@@ -21,12 +21,18 @@
             </span>
         </div>
         <div class="tags">
-            <app-tags [foodPageTags]="food.tags"></app-tags>
+            <app-tags [foodPageTags]="food.tags" ></app-tags>
         </div>
         <div class="class">
             <span>
                 Time to cook about <strong>{{food.cookTime}} mins</strong>
             </span>
         </div>
+        <div class="price">
+            <span>
+               {{food.price|currency}}
+            </span>
+        </div>
+        <button>Add to Cart</button>
     </div>
 </div>
